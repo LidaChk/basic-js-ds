@@ -25,7 +25,7 @@ const { NotImplementedError } = require('../extensions/index.js');
 //npm run test --test test/remove-from-list.test
 function removeKFromList(l, k) {
 
-  //ну такое решение - тестов мало
+  //ну такое... решение - тестов мало
 
   if( l.next!=null && l.next.value == k ){
     l.next = l.next.next;
