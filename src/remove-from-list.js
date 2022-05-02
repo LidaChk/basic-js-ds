@@ -25,19 +25,14 @@ const { NotImplementedError } = require('../extensions/index.js');
 //npm run test --test test/remove-from-list.test
 function removeKFromList(l, k) {
 
-  //ну такое... решение - тестов мало
+  if (!l) return null;
 
-  if( l.next!=null && l.next.value == k ){
-    l.next = l.next.next;
-  } 
-  
-  if (l.value == k && l.next!=null) {
-      l.value = l.next.value;   
-      l.next = l.next.next;   
+  if (k != l.value) {
+    l.next = removeKFromList(l.next, k);
+    return l;
   }
 
-  if( l.next!=null) l.next = removeKFromList(l.next, k)
-  return l;
+  return removeKFromList(l.next, k);
 }
 
 module.exports = {
